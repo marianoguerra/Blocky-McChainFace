@@ -74,7 +74,7 @@ const NavBar = (props) => {
               noWrap
               className={classes.title}
             >
-              Tamper-proof Car History
+              Tamper-proof BlockBook
             </Typography>
             <img src={logo} alt="Blockchain Hackathon" style={{width: '35px', marginRight: '10px' }} />
             {/*<IconButton color="inherit">

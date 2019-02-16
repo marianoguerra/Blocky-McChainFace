@@ -4,15 +4,16 @@ import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
-import MenuIcon from '@material-ui/icons/Menu';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Hidden from '@material-ui/core/Hidden';
 
+import carImg from './mbc.png';
 import CarMilestonesChart from './components/CarMilestonesChart';
 import HistoryTable from './components/HistoryTable';
 import Menu from './components/Menu';
@@ -39,6 +40,28 @@ const styles = theme => ({
   h5: {
     marginBottom: theme.spacing.unit * 2,
   },
+  mainFeaturedPost: {
+    backgroundColor: theme.palette.grey[800],
+    color: theme.palette.common.white,
+    marginBottom: theme.spacing.unit * 4,
+  },
+  cardGrid: {
+    paddingTop: `${theme.spacing.unit * 6}px`,
+    paddingBottom: `${theme.spacing.unit * 6}px`,
+    [theme.breakpoints.up('md')]: {
+      paddingRight: 0,
+    },
+  },
+
+  card: {
+    display: 'flex',
+  },
+  cardDetails: {
+    flex: 1,
+  },
+  cardMedia: {
+    width: "30%",
+  },
 });
 
 class Dashboard extends React.Component {
@@ -52,14 +75,56 @@ class Dashboard extends React.Component {
 
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
+
+            <Grid container spacing={40} className={classes.cardGrid}>
+              <Grid item xs={12} md={12}>
+                <Card className={classes.card}>
+                  <div className={classes.cardDetails}>
+                    <CardContent>
+                      <Typography component="h2" variant="h5">
+                        Mercedes Benz C-Klasse 2017
+                      </Typography>
+                      <Typography variant="subtitle1" color="textSecondary">
+                        Plate: BB-3456-AH
+                      </Typography>
+                      <Typography variant="subtitle1" paragraph>
+                        Kms: 8500
+                      </Typography>
+                      {/*<Typography variant="subtitle1" color="primary">
+                        Continue reading...
+                      </Typography>*/}
+                    </CardContent>
+                  </div>
+                  <Hidden xsDown>
+                    <CardMedia
+                      className={classes.cardMedia}
+                      image={carImg}
+                      title="Auto loco"
+                    />
+                  </Hidden>
+                </Card>
+              </Grid>
+              {/*<Grid item md={6}>
+                <div className={classes.mainFeaturedPostContent}>
+                  <Typography component="h1" variant="h3" color="inherit" gutterBottom>
+                    Title of a longer featured blog post
+                  </Typography>
+                  <Typography variant="h5" color="inherit" paragraph>
+                    Multiple lines of text that form the lede, informing new readers quickly and
+                    efficiently about what&apos;s most interesting in this post&apos;s contents…
+                  </Typography>
+                </div>
+              </Grid>*/}
+            </Grid>
+
           <Typography variant="h4" gutterBottom component="h2">
-            Service Milestones
+            Milestones
           </Typography>
           <Typography component="div" className={classes.chartContainer}>
             <CarMilestonesChart />
           </Typography>
           <Typography variant="h4" gutterBottom component="h2">
-            History
+            Maintainance History
           </Typography>
           <div className={classes.tableContainer}>
             <HistoryTable />
