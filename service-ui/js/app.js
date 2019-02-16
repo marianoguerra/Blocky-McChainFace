@@ -64,7 +64,8 @@ function main() {
       completeOrderStart: function() {
         this.ui.currentOrder.completeForm = {
           type: '',
-          summary: ''
+          summary: '',
+          kms: ''
         };
       },
       completeOrderCommit: function() {
