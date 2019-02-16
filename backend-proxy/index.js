@@ -101,6 +101,36 @@ const ORDERS = {
   }
 };
 
+const PARTICIPANTS = {
+  services: {
+    atu: {
+      name: 'ATU'
+    },
+    mercedesService: {
+      name: 'Mercedes Service'
+    }
+  },
+  certifiers: {
+    tuvRL: {
+      name: 'TÜV Rheinland'
+    },
+    tuvS: {
+      name: 'TÜV Süd'
+    }
+  }
+};
+
+function handleGetParticipants(_request, response, data) {
+  const type = data.params.type,
+    items = PARTICIPANTS[type];
+
+  if (items) {
+    reply(response, {data: items});
+  } else {
+    notFound(response, 'invalid-participant-type');
+  }
+}
+
 function handleTransfer(_request, response, _data) {
   response.status(200).send({result: 'transfer_ok'});
 }
@@ -156,6 +186,7 @@ const DO_HANDLERS = {
   getAsset: handleGetAsset,
   getAssets: handleGetAssets,
   getOpenOrders: handleGetOpenOrders,
+  getParticipants: handleGetParticipants,
   transact: handleTransact
 };
 
