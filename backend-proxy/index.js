@@ -40,6 +40,67 @@ const ASSETS = {
   }
 };
 
+const ORDERS = {
+  tuv: {
+    o1_1: {
+      car: {
+        name: 'Mercedes Class A',
+        code: 'mb-class-a'
+      }
+    },
+    o1_2: {
+      car: {
+        name: 'Mercedes Class B',
+        code: 'mb-class-b'
+      }
+    },
+    o1_3: {
+      car: {
+        name: 'Mercedes Class C',
+        code: 'mb-class-c'
+      }
+    },
+    o1_4: {
+      car: {
+        name: 'Mercedes E',
+        code: 'mb-class-e'
+      }
+    },
+    o1_5: {
+      car: {
+        name: 'Mercedes S',
+        code: 'mb-class-s'
+      }
+    },
+    o1_6: {
+      car: {
+        name: 'Mercedes GLE',
+        code: 'mb-gle'
+      }
+    }
+  },
+  atu: {
+    o2_6: {
+      car: {
+        name: 'Mercedes GLE',
+        code: 'mb-gle'
+      }
+    },
+    o2_4: {
+      car: {
+        name: 'Mercedes Class E',
+        code: 'mb-class-e'
+      }
+    },
+    o2_5: {
+      car: {
+        name: 'Mercedes Class S',
+        code: 'mb-class-s'
+      }
+    }
+  }
+};
+
 function handleTransfer(_request, response, _data) {
   response.status(200).send({result: 'transfer_ok'});
 }
@@ -75,10 +136,27 @@ function handleGetAssets(_request, response, data) {
   }
 }
 
+function handleGetOpenOrders(_request, response, data) {
+  const pOrders = ORDERS[data.params.id];
+
+  if (pOrders) {
+    return reply(response, pOrders);
+  } else {
+    return notFound(response, 'invalid-participant-id');
+  }
+}
+
+function handleTransact(_request, response, data) {
+  console.log('transact!', data);
+  reply(response, {ok: true});
+}
+
 const DO_HANDLERS = {
   transfer: handleTransfer,
   getAsset: handleGetAsset,
-  getAssets: handleGetAssets
+  getAssets: handleGetAssets,
+  getOpenOrders: handleGetOpenOrders,
+  transact: handleTransact
 };
 
 function notFound(response, reason) {
