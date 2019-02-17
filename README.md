@@ -66,7 +66,7 @@ Technology:
 * vuejs
 * bootstrap
 
-## backend-proxy
+### backend-proxy
 
 A backend API server to proxy between frontends and HyperLedger services.
 
@@ -79,7 +79,7 @@ Technology:
 * expressjs
 * composer-client
 
-## hyperledger
+### hyperledger
 
 HyperLedger implementation of Assets, Participants and Transactions
 
@@ -117,9 +117,7 @@ Ordering service provides a shared communication channel to clients and peers, o
 
 Contains the api rest server that exploses the assets and transactions to be used by certified customers.
 
-
-
-## log-share
+### log-share
 
 Abandoned prototype to scan QR codes to trigger transactions on the blockchain
 using [expo.io](https://expo.io/)
@@ -128,3 +126,10 @@ Technology:
 
 * [expo.io](https://expo.io/)
 
+## Deployment
+
+Servers in DigitalOcean in Frankfurt.
+
+* Ubuntu 18.04 LTS
+* nginx as reverse proxy
+* Letsencrypt for HTTPS certs
