@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import { withRouter } from 'react-router-dom';
 import NavBar from './NavBar';
 import Drawer from './Drawer';
 
@@ -17,8 +18,9 @@ export class Menu extends Component {
   };
 
   render() {
+    // console.log("ID menu", this.props.match.params.id);
     return (
-      <>
+      <React.Fragment>
         <NavBar
           open={this.state.open}
           onDrawerOpen={this.handleDrawerOpen}
@@ -27,7 +29,7 @@ export class Menu extends Component {
           open={this.state.open}
           onDrawerClose={this.handleDrawerClose}
         />
-      </>
+      </React.Fragment>
     );
   }
 }

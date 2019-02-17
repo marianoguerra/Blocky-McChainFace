@@ -20,7 +20,7 @@ const data = [
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active) {
-    console.log(active, payload[0].value, payload[0], label);
+    // console.log(active, payload[0].value, payload[0], label);
     const milestone = payload[0].payload;
 
     return (

@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { parse } from 'query-string';
 import classNames from 'classnames';
+import { Link, withRouter } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 
 import Drawer from '@material-ui/core/Drawer';
-import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
-import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
 
-import { mainListItems, secondaryListItems } from './listItems';
-
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import MaintainancesIcon from '@material-ui/icons/Build';
+import PeopleIcon from '@material-ui/icons/People';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 
 const drawerWidth = 240;
 
@@ -50,6 +53,15 @@ const styles = theme => ({
 });
 
 export class SideMenu extends Component {
+
+  activeRoute(routeName) {
+    return this.props.location.pathname === routeName ? true : false;
+  }
+
+  getId = () => {
+    return parse(this.props.location).id
+  }
+
   render() {
     const { classes, open } = this.props;
 
@@ -67,9 +79,45 @@ export class SideMenu extends Component {
           </IconButton>
         </div>
         <Divider />
-        <List>{mainListItems}</List>
+        <List>
+          <Link to={{ pathname: '/', search: this.props.location.search}} style={{ textDecoration: 'none' }}>
+            <ListItem button selected={this.activeRoute('/')}>
+              <ListItemIcon>
+                <DashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Dashboard" />
+            </ListItem>
+          </Link>
+
+          <Link to={{ pathname: '/services', search: this.props.location.search}} style={{ textDecoration: 'none' }}>
+            <ListItem button selected={this.activeRoute('/services')}>
+              <ListItemIcon>
+                <MaintainancesIcon />
+              </ListItemIcon>
+              <ListItemText primary="Maintainances" />
+            </ListItem>
+          </Link>
+        </List>
         <Divider />
-        <List>{secondaryListItems}</List>
+        <List>
+          <ListSubheader inset>Legal</ListSubheader>
+          <Link to={{ pathname: '/ownership', search: this.props.location.search}} style={{ textDecoration: 'none' }}>
+            <ListItem button selected={this.activeRoute('/ownership')}>
+              <ListItemIcon>
+                <PeopleIcon />
+              </ListItemIcon>
+              <ListItemText primary="Ownership" />
+            </ListItem>
+          </Link>
+          <Link to={{ pathname: '/claims', search: this.props.location.search}} style={{ textDecoration: 'none' }}>
+            <ListItem button selected={this.activeRoute('/claims')}>
+              <ListItemIcon>
+                <AssignmentIcon />
+              </ListItemIcon>
+              <ListItemText primary="Insurance claims" />
+            </ListItem>
+          </Link>
+        </List>
       </Drawer>
     );
   }
@@ -77,11 +125,10 @@ export class SideMenu extends Component {
 
 SideMenu.propTypes = {
   classes: PropTypes.object.isRequired,
-  onDrawerOpen: PropTypes.func.isRequired,
   onDrawerClose: PropTypes.func.isRequired,
   open: PropTypes.bool
 };
 
-export default withStyles(styles)(SideMenu);
+export default withRouter(withStyles(styles)(SideMenu));
 
 
