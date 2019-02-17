@@ -11,7 +11,7 @@ import Menu from './components/Menu';
 import store from './store';
 
 export const http = axios.create({
-    baseURL: 'http://' + window.location.hostname + ':8080/do'
+    baseURL: window.location.protocol + '//' + window.location.hostname + ':8080/do'
     // baseURL: '/api'
     // baseURL: 'https://payback.dqs.booking.com/api'
 });
