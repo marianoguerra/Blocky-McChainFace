@@ -1,4 +1,4 @@
-const URL = 'http://localhost:3000/do';
+const URL = 'http://' + window.location.host + ':8080/do';
 function req(type, params) {
   return fetch(URL, {
     method: 'POST',

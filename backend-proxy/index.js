@@ -5,7 +5,8 @@ const express = require('express'),
   cors = require('cors');
 
 const app = express(),
-  port = 3000,
+  port = 8080,
+  SERVER_HOST = process.env.SERVER_HOST || 'localhost',
   corsOptions = {
     origin: '*'
   };
@@ -215,9 +216,9 @@ app.post('/do', function(request, response) {
   response.send(handleDo(request, response, data));
 });
 
-const wss = new WebSocket.Server({port: 3001});
+const wss = new WebSocket.Server({port: 8081});
 
-const WS_SERVER_URL = 'ws://localhost:3002/';
+const WS_SERVER_URL = 'ws://' + SERVER_HOST + ':8082/';
 
 let connIdGen = 0;
 
