@@ -41,7 +41,7 @@ class App extends React.Component {
   }
 
   getId() {
-    return parse(window.location.search).id
+    return parse(window.location.search).id || 'c1';
   }
 
   fetchCar = () => {
