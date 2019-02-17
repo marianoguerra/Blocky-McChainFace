@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cors(corsOptions));
 app.use('/service/', express.static('../service-ui/'));
 app.use('/', express.static('../mobile-fe/build/'));
-app.use('/check/', express.static('../user-ui/'));
+app.use('/owner/', express.static('../user-ui/'));
 
 const ASSETS = {
   cars: {

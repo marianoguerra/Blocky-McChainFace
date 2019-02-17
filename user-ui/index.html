@@ -17,7 +17,7 @@
     <div id="app">
       <div v-if="isLoggedIn" class="text-center" style="margin-left: 20%; width: 60%; margin-top: 3%;">
         <div v-if="isLanding">
-          <img class="mb-4" src="/img/car.png" alt="" width="72" height="72">
+          <img class="mb-4" src="img/car.png" alt="" width="72" height="72">
 
           <button class="btn btn-primary btn-lg btn-block" v-on:click="goToServiceList()">Send to Service</button>
           <button class="btn btn-primary btn-lg btn-block" v-on:click="goToCertifierList()">Send to Check</button>
@@ -114,7 +114,7 @@
 
       <div v-if="!isLoggedIn" class="text-center" style="margin-left: 20%; width: 60%; margin-top: 3%;">
         <div class="form-signin">
-          <img class="mb-4" src="/img/car.png" alt="" width="72" height="72">
+          <img class="mb-4" src="img/car.png" alt="" width="72" height="72">
           <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
           <label for="inputEmail" class="sr-only">Username</label>
           <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus v-model="ui.login.username">
