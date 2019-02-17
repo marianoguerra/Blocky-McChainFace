@@ -88,7 +88,7 @@ function main() {
 
         info.date = this.ui.viewInfo.date;
         this.goToLanding();
-        transact(info.id, 'sheduleService', info).then(_res =>
+        transact(info.id, 'scheduleService', info).then(_res =>
           notify('Service Scheduled')
         );
       },
@@ -97,7 +97,7 @@ function main() {
 
         info.date = this.ui.viewInfo.date;
         this.goToLanding();
-        transact(info.id, 'sheduleCertifier', info).then(_res =>
+        transact(info.id, 'scheduleCertifier', info).then(_res =>
           notify('Certifier Scheduled')
         );
       }
