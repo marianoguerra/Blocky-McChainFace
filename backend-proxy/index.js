@@ -86,64 +86,6 @@ const ASSETS = {
           onTime: true,
           By: 'ATU',
           Owner: 'Thomas Müller'
-        },
-        {
-          name: '2017/11',
-          date: '2017-11-19',
-          Km: 20,
-          Milestone: 'Aquisition',
-          By: 'Dealership',
-          Owner: 'John Doe'
-        },
-        {
-          name: '2018/03',
-          date: '2018-03-19',
-          Km: 2385,
-          onTime: true,
-          Milestone: 'Scheduled maintainance',
-          By: 'Official Service shop',
-          Owner: 'John Doe'
-        },
-        {
-          name: '2018/06',
-          date: '2018-06-19',
-          Km: 5000,
-          Milestone: 'Breakage',
-          By: 'Car shop',
-          Owner: 'John Doe'
-        },
-        {
-          name: '2018/12',
-          date: '2018-12-19',
-          Km: 6580,
-          Milestone: 'Emmissions Check',
-          By: 'TÜV',
-          Owner: 'John Doe'
-        },
-        {
-          name: '2019/01',
-          date: '2019-01-19',
-          Km: 7500,
-          Milestone: 'Ownership Transfer',
-          By: 'TÜV',
-          Owner: 'Thomas Müller'
-        },
-        {
-          name: '2019/03',
-          date: '2019-03-19',
-          Km: 8000,
-          Milestone: 'Scheduled maintainance',
-          By: 'Official Service shop',
-          Owner: 'Thomas Müller'
-        },
-        {
-          name: '2018/09',
-          date: '2018-09-09',
-          Km: 10000,
-          Milestone: 'Service ATU',
-          onTime: true,
-          By: 'ATU',
-          Owner: 'Thomas Müller'
         }
       ]
 
