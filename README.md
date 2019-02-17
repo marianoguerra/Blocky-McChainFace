@@ -2,6 +2,8 @@
 
 Codename: [Blocky-McChainFace](https://en.wikipedia.org/wiki/Boaty_McBoatface)
 
+[![Watch the video](https://github.com/marianoguerra/Blocky-McChainFace/raw/master/demo-cover.png)](https://github.com/marianoguerra/Blocky-McChainFace/raw/master/demo.mp4)
+
 ## High Level Description
 
 A fair price on the second-hand market!
