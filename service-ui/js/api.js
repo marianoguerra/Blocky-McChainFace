@@ -1,4 +1,4 @@
-const URL = window.location.protocol + '//' + window.location.hostname + ':8080/do';
+const URL = window.location.protocol + '//' + window.location.host + '/do';
 function req(type, params) {
   return fetch(URL, {
     method: 'POST',
