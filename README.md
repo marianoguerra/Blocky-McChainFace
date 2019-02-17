@@ -64,15 +64,6 @@ Technology:
 * vuejs
 * bootstrap
 
-## log-share
-
-Abandoned prototype to scan QR codes to trigger transactions on the blockchain
-using [expo.io](https://expo.io/)
-
-Technology:
-
-* [expo.io](https://expo.io/)
-
 ## backend-proxy
 
 A backend API server to proxy between frontends and HyperLedger services.
@@ -85,4 +76,17 @@ Technology:
 * nodejs
 * expressjs
 * composer-client
+
+## hyperledger
+
+HyperLedger implementation of Assets, Participants and Transactions
+
+## log-share
+
+Abandoned prototype to scan QR codes to trigger transactions on the blockchain
+using [expo.io](https://expo.io/)
+
+Technology:
+
+* [expo.io](https://expo.io/)
 
