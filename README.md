@@ -1,6 +1,6 @@
 # BlockBook
 
-Codename: Blocky-McChainFace
+Codename: [Blocky-McChainFace](https://en.wikipedia.org/wiki/Boaty_McBoatface)
 
 ## High Level Description
 
