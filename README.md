@@ -2,7 +2,7 @@
 
 Codename: [Blocky-McChainFace](https://en.wikipedia.org/wiki/Boaty_McBoatface)
 
-[![Watch the video](https://github.com/marianoguerra/Blocky-McChainFace/raw/master/demo-cover.png)](https://github.com/marianoguerra/Blocky-McChainFace/raw/master/demo.mp4)
+[![Watch the video](https://github.com/marianoguerra/Blocky-McChainFace/raw/master/demo-cover.png)](https://youtu.be/6Jqn4CMwO94)
 
 ## High Level Description
 
