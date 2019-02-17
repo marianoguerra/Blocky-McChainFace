@@ -1,0 +1,10 @@
+/**
+ * All named queries in this file
+ **/
+
+ // Returns all cars 
+ query AllCars {
+   description: "Returns all cars in the registry"
+   statement:  
+      SELECT  org.logbook.car.Car
+ }

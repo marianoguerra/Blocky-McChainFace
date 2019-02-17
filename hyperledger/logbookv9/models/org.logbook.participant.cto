@@ -1,0 +1,21 @@
+namespace  org.logbook.participant
+
+abstract participant LogBookParticipant identified by id {
+  o String          id
+  o String          name
+}
+
+abstract participant ServiceProvider extends LogBookParticipant {
+}
+
+participant Certifiers extends ServiceProvider {
+}
+
+participant Services extends ServiceProvider {
+}
+
+participant Owners extends LogBookParticipant {
+}
+
+participant Dealerships extends LogBookParticipant {
+}

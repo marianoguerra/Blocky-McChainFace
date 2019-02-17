@@ -1,0 +1,95 @@
+namespace org.logbook.car
+
+import org.logbook.participant.ServiceProvider
+
+asset Car identified by id {
+  o   String            id
+  o   String            name
+  o   String            brand
+  o   String            model
+  o   Integer     	year range = [2000,2100]
+  o   String            color optional
+  o   String            owner optional
+  o   DateTime    	createdDate
+}
+
+// Logistics department creates the cars
+transaction CreateCar {
+  o   String            name
+  o   String            brand
+  o   String            model
+  o   Integer     	year
+  o   String            color
+}
+
+event CarCreated {
+  o   String      id
+  o   String      name
+  o   String      brand
+  o   String      model
+  o   Integer     year
+  o   String      color
+  o   DateTime    createdDate
+}
+
+event CarTransfered {
+  o   String      id
+  o   String      name
+  o   String      brand
+  o   String      model
+  o   Integer     year
+  o   String      color
+  o   DateTime    createdDate
+  o   DateTime    owner
+}
+
+asset Order identified by id {
+  o   String      id
+  --> Car         car
+  o   DateTime    date
+  o   String      type optional
+  o   String      summary optional
+  --> ServiceProvider serviceProvider optional
+}
+
+event OrderCreated {
+  o   String      id
+  --> Car	  car
+  o   DateTime    date
+  o   String      serviceProvider
+  o   String      type
+  o   String      summary
+}
+
+transaction TransferCar {
+  o   String      car
+  o   String      newOwner
+}
+
+transaction ScheduleService {
+  o   String      car
+  o   DateTime    date
+  o   String      serviceProvider
+}
+
+transaction ScheduleCertification  {
+  o   String      car
+  o   DateTime    date
+  o   String      serviceProvider
+}
+
+transaction FinishService {
+  o   String      car
+  o   DateTime    date
+  o   String      type
+  o   String      summary
+  o   String      serviceProvider
+}
+
+transaction FinishCertification {
+  o   String      car
+  o   DateTime    date
+  o   String      type
+  o   String      summary
+  o   String      serviceProvider
+}

@@ -1,0 +1,23 @@
+{
+  "name": "logbookv9",
+  "version": "0.0.6",
+  "description": "Incremental creation of the Log Book model",
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "author": "Javier Dall Amore",
+  "email": "javierdallamore@gmail.com",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "browserfs": "latest",
+    "chai": "^4.2.0",
+    "composer-admin": "latest",
+    "composer-client": "latest",
+    "composer-connector-embedded": "latest",
+    "eslint": "latest",
+    "istanbul": "latest",
+    "mkdirp": "latest",
+    "mocha": "latest"
+  },
+  "dependencies": {}
+}
