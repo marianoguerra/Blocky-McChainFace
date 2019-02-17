@@ -1,4 +1,5 @@
 import React from 'react';
+import { parse } from 'query-string';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { setCar } from './actions';
@@ -39,11 +40,15 @@ class App extends React.Component {
     this.fetchCar();
   }
 
+  getId() {
+    return parse(window.location.search).id
+  }
+
   fetchCar = () => {
     var errorMessage = 'There was an error fetching the car. Please provide an id.';
     // this.setState({ isLoading: true });
-
-    http.post('', {type: 'getAsset', params: {type: 'cars', id: 'c1'}})
+    console.log(this.getId());
+    http.post('', {type: 'getAsset', params: {type: 'cars', id: this.getId()}})
         .then(response => {
           // this.setState({ isLoading: false })
           if (response && response.data && response.status === 200) {

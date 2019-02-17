@@ -21,14 +21,48 @@ const ASSETS = {
     c1: {
       brand: 'Mercedes Benz',
       model: 'Class A',
+
       year: 2017,
-      color: 'Red'
+      plate: 'BB-3456-AH',
+      color: 'Gray',
+      img: 'https://www.lueg.de/fileadmin/_processed_/f/5/csm_mercedes-benz-a-klasse-edition-1-exterieur-content-16-9_f6ea1bccbd.jpg',
+      transactions: [
+        { name: '2017/11', date: '2017-11-19', Km: 20, Milestone: 'Aquisition', By: 'Dealership', Owner: 'John Doe' },
+        { name: '2018/03', date: '2018-03-19', Km: 2385, onTime: true, Milestone: 'Scheduled maintainance', By: 'Official Service shop', Owner: 'John Doe'},
+        { name: '2018/06', date: '2018-06-19', Km: 5000, Milestone: 'Breakage', By: 'Car shop', Owner: 'John Doe' },
+        { name: '2018/12', date: '2018-12-19', Km: 6580, Milestone: 'Emmissions Check', By: 'TÜV', Owner: 'John Doe' },
+        { name: '2019/01', date: '2019-01-19', Km: 7500, Milestone: 'Ownership Transfer', By: 'TÜV', Owner: 'Thomas Müller' },
+        { name: '2019/03', date: '2019-03-19', Km: 8000, Milestone: 'Scheduled maintainance', By: 'Official Service shop', Owner: 'Thomas Müller' },
+        { name: '2018/09', date: '2018-09-09', Km: 10000, Milestone: 'Service ATU', onTime:true, By: 'ATU', Owner: 'Thomas Müller' }
+      ]
+
+//       Transaction: David → relevant selling details → Adam
+// #last date of service → 09.09.2018
+// #Service performed on time
+// #Current amount of kilometers: 100.000km
+// #Date of first registration → 01/2016
+// #Date of next examination → 10/2019
+// #Emission key (sticker colour) → 30
+// #Equipment --> Sports Edition, Parking Assistent - new added Sound System
+// #upgraded Equpment → soundystem
+
     },
     c2: {
       brand: 'Mercedes Benz',
-      model: 'Class B',
+      model: 'Class C',
+      img: 'https://cdn.meinauto.de/car-pics/___Pix-NoBrand/MERCEDES/C-CLASS/4/5Wagon%20Avantgarde/mercedes_15c220avantgardewg4b_angularfront_nb-298.jpg',
       year: 2016,
-      color: 'Blue'
+      plate: 'BB-1234-AH',
+      color: 'Black',
+      transactions: [
+        { name: '2018/11', date: '2018-11-19', Km: 15, Milestone: 'Acquisition', By: 'Dealership', Owner: 'Christian White' },
+        { name: '2018/03', date: '2018-03-19', Km: 3056, onTime: true, Milestone: 'Scheduled maintainance', By: 'Official Service shop', Owner: 'Christian White'},
+        { name: '2019/06', date: '2019-06-19', Km: 6780, Milestone: 'Breakage', By: 'Car shop', Owner: 'Christian White' },
+        { name: '2019/12', date: '2019-12-19', Km: 6980, Milestone: 'Emmissions Check', By: 'Car Notary', Owner: 'Christian White' },
+        { name: '2019/12', date: '2019-12-19', Km: 6980, Milestone: 'Service ATU', By: 'ATU', Owner: 'Christian White' },
+        { name: '2020/01', date: '2020-01-19', Km: 10675, Milestone: 'Ownership Transfer', By: 'Car Notary', Owner: 'Paul Black' },
+        { name: '2020/03', date: '2020-03-19', Km: 56788, Milestone: 'Scheduled maintainance', By: 'Official Service shop', Owner: 'Paul Black' },
+      ]
     }
   },
   robot: {

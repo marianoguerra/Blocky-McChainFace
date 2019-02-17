@@ -70,13 +70,14 @@ export class Dashboard extends Component {
               <div className={classes.cardDetails}>
                 <CardContent>
                   <Typography component="h2" variant="h5">
-                    Mercedes Benz C-Klasse 2017
+                    {/*Mercedes Benz C-Klasse 2017*/}
+                    {car.brand} {car.model} {car.year}
                   </Typography>
                   <Typography variant="subtitle1" color="textSecondary">
-                    Plate: BB-3456-AH
+                    Plate: {car.plate || 'BB-3456-AH'}
                   </Typography>
                   <Typography variant="subtitle1" paragraph>
-                    Kms: 8500
+                    Color: {car.color}
                   </Typography>
                   <Typography variant="subtitle1" color="primary">
                     Registration information
@@ -86,7 +87,7 @@ export class Dashboard extends Component {
               <Hidden xsDown>
                 <CardMedia
                   className={classes.cardMedia}
-                  image={carImg}
+                  image={car.img}
                   title="Auto img"
                 />
               </Hidden>
@@ -105,16 +106,16 @@ export class Dashboard extends Component {
           </Grid>*/}
         </Grid>
         <Typography variant="h5" gutterBottom component="h2">
-          History
+          Mileage history
         </Typography>
         <Typography component="div" className={classes.chartContainer}>
-          <CarMilestonesChart />
+          <CarMilestonesChart car={car}  />
         </Typography>
         <Typography variant="h5" gutterBottom component="h2">
-          Maintainance record
+
         </Typography>
         <div className={classes.tableContainer}>
-          <HistoryTable />
+          <HistoryTable car={car} />
         </div>
       </React.Fragment>
     );
@@ -136,7 +137,7 @@ const mapDispatchToProps = dispatch => {
  */
 const mapStateToProps = (state) => {
   const { main: { car } } = state;
-  console.log("state ", state);
+  console.log(car);
   return { car };
 };
 

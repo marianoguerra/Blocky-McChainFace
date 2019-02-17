@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import MaterialTable from 'material-table';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -12,6 +13,7 @@ const styles = {
   root: {
     width: '100%',
     overflowX: 'auto',
+    marginBottom: '50px'
   },
   table: {
     minWidth: 700,
@@ -19,51 +21,66 @@ const styles = {
 };
 
 let id = 0;
-function createData(name, calories, fat, carbs, protein) {
-  id += 1;
-  return { id, name, calories, fat, carbs, protein };
-}
 
-const data = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
 
 function SimpleTable(props) {
-  const { classes } = props;
+  const { classes, car } = props;
 
   return (
     <Paper className={classes.root}>
-      <Table className={classes.table}>
-        <TableHead>
-          <TableRow>
-            <TableCell>Owner</TableCell>
-            <TableCell align="right">Date In</TableCell>
-            <TableCell align="right">Date out</TableCell>
-            <TableCell align="right">Kms</TableCell>
-            <TableCell align="right">Problem</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data.map(n => (
-            <TableRow key={n.id}>
-              <TableCell component="th" scope="row">
-                {n.name}
-              </TableCell>
-              <TableCell align="right">{n.calories}</TableCell>
-              <TableCell align="right">{n.fat}</TableCell>
-              <TableCell align="right">{n.carbs}</TableCell>
-              <TableCell align="right">{n.protein}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+      <MaterialTable
+          options={{
+            pageSize: 10,
+            emptyRowsWhenPaging: false
+          }}
+          columns={[
+            { title: 'Owner', field: 'Owner' },
+            { title: 'Milestone', field: 'Milestone' },
+            { title: 'Date', field: 'date', type: 'date' },
+            { title: 'Partner', field: 'By',  },
+            { title: 'Kms', field: 'Km', type: 'numeric' },
+            // {
+            //   title: 'Partner',
+            //   field: 'birthCity',
+            //   lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
+            // },
+          ]}
+          data={car.transactions}
+          title="Car records"
+          detailPanel={rowData => {
+            return (
+              <div style={{padding: '10px 40px'}}>
+                More information...
+              </div>
+            )
+          }}
+        />
     </Paper>
   );
 }
+  // <Table className={classes.table}>
+        // <TableHead>
+        //   <TableRow>
+        //     <TableCell>Owner</TableCell>
+        //     <TableCell>Milestone</TableCell>
+        //     <TableCell align="right">Date In</TableCell>
+        //     <TableCell>Partner</TableCell>
+        //     <TableCell align="right">Kms</TableCell>
+
+        //   </TableRow>
+        // </TableHead>
+        // <TableBody>
+        //   {car.transactions.map(n => (
+        //     <TableRow key={n.id}>
+        //       <TableCell component="th" scope="row">{n.Owner}</TableCell>
+        //       <TableCell>{n.Milestone}</TableCell>
+        //       <TableCell align="right">{n.date}</TableCell>
+        //       <TableCell>{n.By}</TableCell>
+        //       <TableCell align="right">{n.Km}</TableCell>
+        //     </TableRow>
+        //   ))}
+        // </TableBody>
+      // </Table>
 
 SimpleTable.propTypes = {
   classes: PropTypes.object.isRequired,

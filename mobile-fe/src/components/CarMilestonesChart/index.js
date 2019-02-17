@@ -35,11 +35,13 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
-function CarMilestonesChart() {
+function CarMilestonesChart(props) {
+  if (!props.car) return null;
+
   return (
     // 99% per https://github.com/recharts/recharts/issues/172
     <ResponsiveContainer width="99%" height={320}>
-      <LineChart data={data}>
+      <LineChart data={props.car.transactions}>
         <XAxis dataKey="name" />
         <YAxis />
         <CartesianGrid vertical={false} strokeDasharray="3 3" />
