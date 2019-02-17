@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "composer-client": "^0.20.7",
+    "composer-common": "^0.20.7",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "ws": "^6.1.3"
