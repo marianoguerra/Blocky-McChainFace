@@ -83,6 +83,42 @@ Technology:
 
 HyperLedger implementation of Assets, Participants and Transactions
 
+![Architecure](https://github.com/marianoguerra/Blocky-McChainFace/raw/master/assets/architecture.jpeg)
+
+I have set up and configured 5 different droplets (machines) in Digital Ocean.
+All the machines are located in Frankfurt.
+
+104.248.43.126 / fabric-ca-server
+
+
+The Hyperledger Fabric CA is a Certificate Authority (CA) for Hyperledger Fabric.
+It provides features such as:
+registration of identities, or connects to LDAP as the user registry
+issuance of Enrollment Certificates (ECerts)
+certificate renewal and revocation
+
+104.248.143.135 full-standalone
+
+This was my test environment. First I deployed all the organizations in this VM using different ports and dockers.
+
+46.101.198.38 tuv-sud
+
+This is the TÜV Süd organization Anchor Peer. It has joined to the ledger for the cars-channel
+
+104.248.32.138 service-atu
+
+This is the TÜV Süd organization Anchor Peer. It has joined to the ledger for the cars-channel
+
+104.248.255.140 orderer
+
+Ordering service provides a shared communication channel to clients and peers, offering a broadcast service for messages containing transactions. Clients connect to the channel and may broadcast messages on the channel which are then delivered to all peers. The channel supports atomic delivery of all messages, that is, message communication with total-order delivery and (implementation specific) reliability.
+
+142.93.99.125 log-book-server
+
+Contains the api rest server that exploses the assets and transactions to be used by certified customers.
+
+
+
 ## log-share
 
 Abandoned prototype to scan QR codes to trigger transactions on the blockchain
