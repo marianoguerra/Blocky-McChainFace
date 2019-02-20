@@ -1,6 +1,10 @@
+//@format
+import {fakeFetch} from './fakebackend.js';
+
 const URL = window.location.protocol + '//' + window.location.host + '/do';
+
 function req(type, params) {
-  return fetch(URL, {
+  return fakeFetch(URL, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     mode: 'cors',
@@ -18,23 +22,31 @@ function getAssets(assetType) {
 }
 
 function getServiceProviders() {
-    return req('getParticipants', {type: 'services'});
+  return req('getParticipants', {type: 'services'});
 }
 
 function getCertifierProviders() {
-    return req('getParticipants', {type: 'certifiers'});
+  return req('getParticipants', {type: 'certifiers'});
 }
 
 function getNewCars(pId) {
-    return req('getNewCars', {id: pId});
+  return req('getNewCars', {id: pId});
 }
 
 function getUsedCars(pId) {
-    return req('getUsedCars', {id: pId});
+  return req('getUsedCars', {id: pId});
 }
 
 function transact(pId, type, params) {
-    return req('transact', {id: pId, type: type, params: params});
+  return req('transact', {id: pId, type: type, params: params});
 }
 
-export {getAsset, getAssets, getServiceProviders, getCertifierProviders, getNewCars, getUsedCars, transact};
+export {
+  getAsset,
+  getAssets,
+  getServiceProviders,
+  getCertifierProviders,
+  getNewCars,
+  getUsedCars,
+  transact
+};

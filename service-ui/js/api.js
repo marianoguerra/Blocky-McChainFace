@@ -1,6 +1,10 @@
+//@format
+import {fakeFetch} from './fakebackend.js';
+
 const URL = window.location.protocol + '//' + window.location.host + '/do';
+
 function req(type, params) {
-  return fetch(URL, {
+  return fakeFetch(URL, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     mode: 'cors',
@@ -18,11 +22,11 @@ function getAssets(assetType) {
 }
 
 function getOpenOrders(pId) {
-    return req('getOpenOrders', {id: pId});
+  return req('getOpenOrders', {id: pId});
 }
 
 function transact(pId, type, params) {
-    return req('transact', {id: pId, type: type, params: params});
+  return req('transact', {id: pId, type: type, params: params});
 }
 
 export {getAsset, getAssets, getOpenOrders, transact};
