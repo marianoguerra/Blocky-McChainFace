@@ -1,4 +1,12 @@
 
+.PHONY: dist
+dist:
+	rm -rf dist
+	mkdir dist
+	cp -r service-ui dist/service
+	cp -r user-ui dist/owner
+	cp -r mobile-fe/build/* dist/
+
 run-proxy:
 	cd backend-proxy && make run
 
