@@ -22,6 +22,10 @@ Customers will be much more likely to buy such a car, which has an easily access
 
 ## Repository Structure
 
+NOTE: lastest commits fake the backend so we can run the frontends in a static
+site provider and shut down the servers, see commit history to see communication
+with backend-proxy
+
 ### mobile-fe
 
 Frontend to see car details.
